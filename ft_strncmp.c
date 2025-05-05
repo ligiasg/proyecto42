@@ -6,7 +6,7 @@
 /*   By: lisalido <lisalido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:33:55 by lisalido          #+#    #+#             */
-/*   Updated: 2025/05/05 12:41:10 by lisalido         ###   ########.fr       */
+/*   Updated: 2025/05/05 12:50:24 by lisalido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,15 @@ int ft_strncmp(const char *s1,const char *s2,size_t n){
 
     while(i <= n){
 
-        if((*s1-*s2))
+        if((*s1-*s2) > 0 ){
+            return (1);
+        }else if ((*s1-*s2)< 0){
+            return (-1);
+        }else{
+            return (*s1-*s2);
+        }
+
+       i++;
 
     }
 }
