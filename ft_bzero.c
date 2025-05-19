@@ -1,28 +1,26 @@
-#include <unistd.h>
-void ft_bzero(void *s, size_t n){
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lisalido <lisalido@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/17 17:01:19 by lisalido          #+#    #+#             */
+/*   Updated: 2025/05/17 17:01:19 by lisalido         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
-    unsigned char *ptr = (unsigned char *)s;
-
-    size_t i = 0;
-
-    while(i < n){
-
-        ptr[i]=0;
-        i++;
-    }
-
-}
-
-
-
-void ft_bzero(void *s, size_t n);
-
-int main(void)
+void	ft_bzero(void *s, size_t n)
 {
-    char buffer[6] = "Hola!";
+	size_t			i;
+	unsigned char	*ptr;
 
-    ft_bzero(buffer, 4);   // Borra los 4 primeros caracteres
-
-    write(1, buffer, 6);   // Verás: "\0\0\0\0!"
-    return 0;
+	ptr = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = 0;
+		i++;
+	}
 }

@@ -3,24 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisalido <lisalido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lisalido <lisalido@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:08:56 by lisalido          #+#    #+#             */
-/*   Updated: 2025/04/22 12:36:39 by lisalido         ###   ########.fr       */
+/*   Updated: 2025/05/19 10:11:06 by lisalido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int ft_strlen(char *s)
+int	ft_strlen(const char *s)
 {
+	int	len;
 
-    char *p = s;
-    while(*p != '\0'){
-        p++;
-    }
-    return p - s;
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
 }
-
-
-

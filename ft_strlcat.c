@@ -1,27 +1,37 @@
-size_t ft_strlcat(char *dst, const char *src, size_t dstsize)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lisalido <lisalido@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/19 10:08:55 by lisalido          #+#    #+#             */
+/*   Updated: 2025/05/19 10:08:55 by lisalido         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
+
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-    size_t dlen = 0;
-    char *d = dst;
-    while (*d) { dlen++; d++; }
+	size_t	dlen;
+	size_t	slen;
+	size_t	i;
 
-    size_t slen = 0;
-    const char *s = src;
-    while (*s) { slen++; s++; }
-
-    if (dlen >= dstsize)
-        return dstsize + slen;
-
-    size_t espacio = dstsize - 1 - dlen;
-    size_t to_copy;
-    if (slen < espacio)
-        to_copy = slen;
-    else
-        to_copy = espacio;
-
-    size_t i = 0;
-    d = dst + dlen;
-    while (i < to_copy) { d[i] = src[i]; i++; }
-    d[i] = '\0';
-
-    return dlen + slen;
+	dlen = 0;
+	while (dst[dlen] && dlen < dstsize)
+		dlen++;
+	slen = 0;
+	while (src[slen])
+		slen++;
+	if (dlen == dstsize)
+		return (dstsize + slen);
+	i = 0;
+	while (src[i] && (dlen + i + 1) < dstsize)
+	{
+		dst[dlen + i] = src[i];
+		i++;
+	}
+	if ((dlen + i) < dstsize)
+		dst[dlen + i] = '\0';
+	return (dlen + slen);
 }

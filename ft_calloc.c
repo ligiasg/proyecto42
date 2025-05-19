@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lisalido <lisalido@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 10:12:43 by lisalido          #+#    #+#             */
-/*   Updated: 2025/05/19 10:12:43 by lisalido         ###   ########.fr       */
+/*   Created: 2025/05/17 17:01:33 by lisalido          #+#    #+#             */
+/*   Updated: 2025/05/17 17:01:33 by lisalido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	i;
+	size_t			total;
+	void			*ptr;
+	size_t			i;
+	unsigned char	*p;
 
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	total = nmemb * size;
+	ptr = malloc(total);
+	if (!ptr)
+		return (NULL);
+	p = (unsigned char *)ptr;
 	i = 0;
-	while (i < n)
+	while (i < total)
 	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i] || !s1[i] || !s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		p[i] = 0;
 		i++;
 	}
-	return (0);
+	return (ptr);
 }

@@ -1,18 +1,19 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisalido <lisalido@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lisalido <lisalido@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 10:23:46 by lisalido          #+#    #+#             */
-/*   Updated: 2025/04/22 11:53:23 by lisalido         ###   ########.fr       */
+/*   Updated: 2025/05/19 10:21:00 by lisalido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-int ft_isdigit(int c){
-    if(c >= 0 && <= 9){
-        return 0;
-    }
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

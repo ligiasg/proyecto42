@@ -1,24 +1,34 @@
-char *strnstr(const char *s1, const char *s2, size_t len){
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lisalido <lisalido@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/19 10:13:31 by lisalido          #+#    #+#             */
+/*   Updated: 2025/05/19 10:13:31 by lisalido         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
-    const char *ptr1;
-    const char *ptr2;
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+{
+	size_t	i;
+	size_t	j;
 
-    ptr1 = s1;
-    ptr2 = s2;
-
-    size_t i;
-    i = 0;
-
-    if(*ptr2 == '\0'){
-        return ptr1;
-    }
-    size_t j;
-    j = 0;
-    while (i < len){
-        if(ptr1[i] == ptr2[i]){
-            return ptr1;
-        }
-        i++;
-    }
-    return (NULL);
+	if (!*s2)
+		return ((char *)s1);
+	i = 0;
+	while (s1[i] && i < len)
+	{
+		j = 0;
+		while ((s1[i + j] == s2[j]) && (i + j < len))
+		{
+			if (!s2[j + 1])
+				return ((char *)&s1[i]);
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
 }

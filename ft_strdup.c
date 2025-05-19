@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lisalido <lisalido@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 10:12:43 by lisalido          #+#    #+#             */
-/*   Updated: 2025/05/19 10:12:43 by lisalido         ###   ########.fr       */
+/*   Created: 2025/05/19 10:04:42 by lisalido          #+#    #+#             */
+/*   Updated: 2025/05/19 10:04:42 by lisalido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strdup(const char *s)
 {
+	size_t	len;
 	size_t	i;
+	char	*copia;
 
+	if (!s)
+		return (NULL);
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	copia = malloc((len + 1) * sizeof(char));
+	if (!copia)
+		return (NULL);
 	i = 0;
-	while (i < n)
+	while (s[i] != '\0')
 	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i] || !s1[i] || !s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		copia[i] = s[i];
 		i++;
 	}
-	return (0);
+	copia[i] = '\0';
+	return (copia);
 }
